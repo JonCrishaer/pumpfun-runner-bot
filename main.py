@@ -344,26 +344,16 @@ class SignalProcessor:
         """Initialize the signal processor with real Bitquery integration."""
         try:
             from signals.bonding_curve_v2 import BondingCurveMonitorV2
-            from signals.bonding_curve_mock import BondingCurveMonitorMock
             from signals.runner_detector import RunnerDetector
             
-            # DEMO MODE: Use mock monitor for testing (no API key needed)
-            # To use real Bitquery API, set DEMO_USE_MOCK=false in .env
-            use_mock = self.settings.demo.use_mock
-            
-            if use_mock:
-                self._bonding_curve_monitor = BondingCurveMonitorMock(
-                    threshold_pct=self.settings.runner.min_progress,
-                    poll_interval=10
-                )
-                self.logger.info("🧪 DEMO MODE: Using MOCK bonding curve monitor (testing, no API needed)")
-            else:
-                self._bonding_curve_monitor = BondingCurveMonitorV2(
-                    api_key=self.settings.bitquery.api_key,
-                    threshold_pct=self.settings.runner.min_progress,
-                    poll_interval=10
-                )
-                self.logger.info("✅ LIVE MODE: Using real Bitquery API for bonding curve monitoring")
+            # LIVE MODE ONLY - No mock option
+            # Initialize bonding curve monitor with REAL Bitquery V2 API
+            self._bonding_curve_monitor = BondingCurveMonitorV2(
+                api_key=self.settings.bitquery.api_key,
+                threshold_pct=self.settings.runner.min_progress,
+                poll_interval=10
+            )
+            self.logger.info("✅ LIVE MODE ACTIVE: Monitoring real Pump.fun bonding curves via Bitquery V2")
             
             # Initialize runner detector
             try:
