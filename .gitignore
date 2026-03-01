@@ -1,0 +1,101 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+logs/
+*.log
+log/
+
+# Data
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Config with secrets
+config/config.yaml
+config/wallet.json
+config/private_key*
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker volumes (when running locally)
+docker/*/
+!docker/prometheus/
+!docker/grafana/
+!docker/loki/
+!docker/promtail/
+!docker/alertmanager/
+docker/prometheus/data/
+docker/grafana/data/
+docker/loki/data/
+docker/promtail/data/
+docker/alertmanager/data/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.crt
+wallet/
+keystore/
+
+# OS files
+Thumbs.db
